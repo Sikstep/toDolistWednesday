@@ -115,7 +115,9 @@ function AppWithReducers() {
         // delete tasks[id]; // удаляем св-во из объекта... значением которого являлся массив тасок
         // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         // setTasks({...tasks});
-        dispatchToTodolists(RemoveTodolistAC(id))
+        const action = RemoveTodolistAC(id)
+        dispatchToTodolists(action)
+        dispatchToTasks(action)
     }
 
     function changeTodolistTitle(id: string, title: string) {
@@ -137,7 +139,9 @@ function AppWithReducers() {
         //     ...tasks,
         //     [newTodolistId]: []
         // })
-        dispatchToTodolists(AddTodolistAC(title))
+        const action = AddTodolistAC(title)
+        dispatchToTodolists(action)
+        dispatchToTasks(action)
     }
 
     return (
