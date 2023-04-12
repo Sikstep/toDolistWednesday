@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useCallback} from 'react';
 import {TodolistType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
@@ -19,16 +19,15 @@ export type TaskType = {
 
 type PropsType = {
     todolist: TodolistType
-
 }
 
 export function TodolistWithRedux({todolist}: PropsType) {
     const {id, title, filter} = todolist
     let tasks = useSelector<AppRootStateType, TaskType[]>(state => state.tasks[id])
     const dispatch = useDispatch();
-    const addTask = (title: string) => {
+    const addTask = useCallback((title: string) => {
         dispatch(addTaskAC(title, id))
-    }
+    },[])
 
     const removeTodolist = () => {
         const action = RemoveTodolistAC(id)
