@@ -31,20 +31,11 @@ export const todolistsReducer = (state: Array<TodolistType> = initialState, acti
         case 'ADD-TODOLIST':
             return [...state, {id: action.todolistId, title: action.title, filter: "all"}]
         case 'CHANGE-TODOLIST-TITLE': {
-            const todolist = state.find(tl => tl.id === action.id);
-            if (todolist) {
-                // если нашёлся - изменим ему заголовок
-                todolist.title = action.title;
-            }
-            return [...state]
+            return state.map(todolist => todolist.id === action.id ? {...todolist, title: action.title} : todolist);
         }
         case 'CHANGE-TODOLIST-FILTER': {
-            const todolist = state.find(tl => tl.id === action.id);
-            if (todolist) {
-                // если нашёлся - изменим ему заголовок
-                todolist.filter = action.filter;
-            }
-            return [...state];
+
+            return state.map(todolist => todolist.id === action.id ? {...todolist, filter: action.filter} : todolist);
         }
         default:
             return state
