@@ -27,7 +27,7 @@ export function TodolistWithRedux({todolist}: PropsType) {
     const dispatch = useDispatch();
     const addTask = useCallback((title: string) => {
         dispatch(addTaskAC(title, id))
-    },[])
+    },[id])
 
     const removeTodolist = () => {
         const action = RemoveTodolistAC(id)

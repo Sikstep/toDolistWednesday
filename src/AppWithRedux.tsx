@@ -32,7 +32,7 @@ function AppWithRedux() {
     const addTodolist = useCallback((title: string) => {
         const action = AddTodolistAC(title)
         dispatch(action)
-    },[])
+    },[dispatch])
 
     return (
         <div className="App">
