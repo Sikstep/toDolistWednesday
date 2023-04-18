@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './state/store';
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC} from './state/tasks-reducer';
 import {ChangeTodolistFilterAC, ChangeTodolistTitleAC, RemoveTodolistAC} from './state/todolists-reducer';
+import {TaskWithRedux} from './TaskWithRedux';
 
 
 export type TaskType = {
@@ -60,29 +61,12 @@ export const TodolistWithRedux = memo(({todolist}: PropsType) => {
         <div>
             {
                 tasks.map(t => {
-                    const onClickHandler = () => dispatch(removeTaskAC(t.id, id))
-                    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                        let newIsDoneValue = e.currentTarget.checked;
-                        dispatch(changeTaskStatusAC(t.id, newIsDoneValue, id));
-                    }
-                    const onTitleChangeHandler = (newValue: string) => {
-                        dispatch(changeTaskTitleAC(t.id, newValue, id));
-                    }
 
-
-                    return <div key={t.id} className={t.isDone ? "is-done" : ""}>
-                        <Checkbox
-                            checked={t.isDone}
-                            color="primary"
-                            onChange={onChangeHandler}
-                        />
-
-                        <EditableSpan value={t.title} onChange={onTitleChangeHandler} />
-                        <IconButton onClick={onClickHandler}>
-                            <Delete />
-                        </IconButton>
-                    </div>
+                    return (
+                        <TaskWithRedux key={t.id} tasks={t} todolistID={id}/>
+                    )
                 })
+
             }
         </div>
         <div>
