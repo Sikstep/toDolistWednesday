@@ -1,6 +1,6 @@
 import React, {ChangeEvent, memo, useCallback} from 'react';
 import {TodolistType} from './App/App';
-import {AddItemForm} from './AddItemForm';
+import {AddItemForm} from './AddItemForm/AddItemForm';
 import {EditableSpan} from './EditableSpan';
 import IconButton from '@mui/material/IconButton/IconButton';
 import {Delete} from '@mui/icons-material';

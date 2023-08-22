@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {action} from '@storybook/addon-actions'
 
 import { Button } from './Button';
-import {AddItemForm, AddItemFormPropsType} from '../AddItemForm';
+import {AddItemForm, AddItemFormPropsType} from '../AddItemForm/AddItemForm';
 import {log} from 'util';
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {IconButton, TextField} from '@mui/material';
