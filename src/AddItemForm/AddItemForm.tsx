@@ -12,7 +12,7 @@ export type AddItemFormPropsType = {
 export const AddItemForm = memo((props: AddItemFormPropsType) => {
     console.log('AddItemForm Called')
 
-const {title, onKeyPressHandler, onChangeHandler, addItem, error} = useAddItemForm()
+const {title, onKeyPressHandler, onChangeHandler, addItem, error} = useAddItemForm(props.addItem)
 
     return <div>
         <TextField variant="outlined"

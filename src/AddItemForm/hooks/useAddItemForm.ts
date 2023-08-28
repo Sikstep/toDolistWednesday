@@ -1,13 +1,13 @@
 import {ChangeEvent, KeyboardEvent, useState} from 'react';
 
-export const useAddItemForm = () => {
+export const useAddItemForm = (onItemAdded: (title: string) => void) => {
 
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
-        // props zamenit'
+    // props zamenit'
     const addItem = () => {
         if (title.trim() !== "") {
-            props.addItem(title);
+            onItemAdded(title);
             setTitle("");
         } else {
             setError("Title is required");
@@ -19,7 +19,7 @@ export const useAddItemForm = () => {
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        if(error) {
+        if (error) {
             setError(null);
             if (e.charCode === 13) {
                 addItem();
@@ -30,9 +30,10 @@ export const useAddItemForm = () => {
 
     return {
         title,
+        error,
         onKeyPressHandler,
         onChangeHandler,
-        addItem,
-        error
+        addItem
 
+    }
 }
