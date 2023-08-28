@@ -4,7 +4,7 @@ export const useAddItemForm = (onItemAdded: (title: string) => void) => {
 
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
-    // props zamenit'
+
     const addItem = () => {
         if (title.trim() !== "") {
             onItemAdded(title);
