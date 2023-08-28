@@ -1,14 +1,14 @@
 import React, {useCallback} from 'react';
-import './App.css';
-import {TaskType} from './Todolist';
-import {AddItemForm} from './AddItemForm/AddItemForm';
+import '../App.css';
+import {TaskType} from '../Todolist';
+import {AddItemForm} from '../AddItemForm/AddItemForm';
 import AppBar from '@mui/material/AppBar/AppBar';
 import {Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@mui/material';
 import {Menu} from '@mui/icons-material';
-import {AddTodolistAC} from './state/todolists-reducer';
+import {AddTodolistAC} from '../state/todolists-reducer';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppRootStateType} from './state/store';
-import {TodolistWithRedux} from './TodolistWithRedux';
+import {AppRootStateType} from '../state/store';
+import {TodolistWithRedux} from '../TodolistWithRedux';
 
 
 export type FilterValuesType = 'all' | 'active' | 'completed';
