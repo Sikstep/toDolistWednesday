@@ -42,7 +42,7 @@ function AppWithRedux() {
                         <Menu/>
                     </IconButton>
                     <Typography variant="h6">
-                        News
+                        News, news
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
